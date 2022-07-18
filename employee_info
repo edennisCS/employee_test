@@ -1,24 +1,32 @@
 class Employee:
     def __init__(self, name, age):
-       self.name = name
-       self.age = int(age)
-       self.job = None
+        self._name = name
+        self._age = int(age)
+        self._job = None
 
-    def set_job(self, job):
-        self.job = job
+    @property
+    def job(self):
+        print("Get Job")
+        return self._job
 
-    def get_job(self):
-        return self.job
+    @job.setter
+    def job(self, job):
+        print("Set Job")
+        self._job = job
 
-    def update_age(self, age):
-        self.age = int(age)
+    @property
+    def age(self):
+        print("Get Age")
+        return self._age
 
-    def get_age(self):
-        return self.age
+    @age.setter
+    def age(self, age):
+        print("Set Age")
+        self._age = int(age)
 
     def __repr__(self):
-        if self.job != None:
-            return (f"Employee is {self.name}, their age is {self.age}, their job role is {self.job}.")
+        if self._job is not None:
+            return (f"Employee is {self._name}, their age is {self._age}, their job role is {self._job}.")
         else:
-            return (f"Employee is {self.name}, their age is {self.age}.")
+            return (f"Employee is {self._name}, their age is {self._age}.")
 
