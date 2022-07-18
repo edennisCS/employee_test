@@ -1,10 +1,11 @@
 import unittest
 from employee_info import Employee
 
+
 class TestEmployee(unittest.TestCase):
     def setUp(self) -> None:
         self.emp_1 = Employee("Sherlock", 35)
-        self.emp_1.set_job("Detective")
+        self.emp_1.job = "Detective"
         self.emp_2 = Employee("Sandy", 29)
 
     def test_repr(self):
@@ -12,7 +13,8 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.emp_2.__repr__(), "Employee is Sandy, their age is 29.")
 
     def test_update_age(self):
-        self.emp_2.update_age(26)
-        self.assertEqual(self.emp_2.get_age(), 26)
+        self.emp_2.age = 26
+        self.assertEqual(self.emp_2.age, 26)
+
 
 
